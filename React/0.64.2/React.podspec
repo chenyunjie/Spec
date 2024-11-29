@@ -259,36 +259,36 @@ Pod::Spec.new do |s|
     ss.dependency "React/React-Core"
   end
 
-  s.subspec "ReactCommon" do |ss|
-    ss.platforms              = { :ios => "10.0" }
-    ss.header_dir             = "ReactCommon" # Use global header_dir for all subspecs for use_frameworks! compatibility
-    ss.compiler_flags         = folly_compiler_flags + ' ' + boost_compiler_flags
-    ss.pod_target_xcconfig    = { "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost-for-react-native\" \"$(PODS_ROOT)/RCT-Folly\" \"$(PODS_ROOT)/DoubleConversion\" \"$(PODS_ROOT)/Headers/Private/React-Core\"",
-                                  "USE_HEADERMAP" => "YES",
-                                  "CLANG_CXX_LANGUAGE_STANDARD" => "c++14" }
+  # s.subspec "ReactCommon" do |ss|
+  #   ss.platforms              = { :ios => "10.0" }
+  #   ss.header_dir             = "ReactCommon" # Use global header_dir for all subspecs for use_frameworks! compatibility
+  #   ss.compiler_flags         = folly_compiler_flags + ' ' + boost_compiler_flags
+  #   ss.pod_target_xcconfig    = { "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost-for-react-native\" \"$(PODS_ROOT)/RCT-Folly\" \"$(PODS_ROOT)/DoubleConversion\" \"$(PODS_ROOT)/Headers/Private/React-Core\"",
+  #                                 "USE_HEADERMAP" => "YES",
+  #                                 "CLANG_CXX_LANGUAGE_STANDARD" => "c++14" }
   
-    ss.subspec "turbomodule" do |sss|
-      sss.dependency "React/React-callinvoker"
-      sss.dependency "React/React-perflogger"
-      sss.dependency "React/React-Core"
-      sss.dependency "React/React-cxxreact"
-      sss.dependency "React/React-jsi"
-      sss.dependency "RCT-Folly"
-      sss.dependency "DoubleConversion"
-      sss.dependency "glog"
+  #   ss.subspec "turbomodule" do |sss|
+  #     sss.dependency "React/React-callinvoker"
+  #     sss.dependency "React/React-perflogger"
+  #     sss.dependency "React/React-Core"
+  #     sss.dependency "React/React-cxxreact"
+  #     sss.dependency "React/React-jsi"
+  #     sss.dependency "RCT-Folly"
+  #     sss.dependency "DoubleConversion"
+  #     sss.dependency "glog"
   
-      sss.subspec "core" do |ssss|
-        ssss.source_files = "ReactCommon/react/nativemodule/core/ReactCommon/**/*.{cpp,h}",
-                            "ReactCommon/react/nativemodule/core/platform/ios/**/*.{mm,cpp,h}"
-      end
+  #     sss.subspec "core" do |ssss|
+  #       ssss.source_files = "ReactCommon/react/nativemodule/core/ReactCommon/**/*.{cpp,h}",
+  #                           "ReactCommon/react/nativemodule/core/platform/ios/**/*.{mm,cpp,h}"
+  #     end
   
-      sss.subspec "samples" do |ssss|
-        ssss.source_files = "ReactCommon/react/nativemodule/samples/ReactCommon/**/*.{cpp,h}",
-                            "ReactCommonreact/nativemodule/samples/platform/ios/**/*.{mm,cpp,h}"
-        ssss.dependency "React/ReactCommon/turbomodule/core"
-      end
-    end
-  end
+  #     sss.subspec "samples" do |ssss|
+  #       ssss.source_files = "ReactCommon/react/nativemodule/samples/ReactCommon/**/*.{cpp,h}",
+  #                           "ReactCommonreact/nativemodule/samples/platform/ios/**/*.{mm,cpp,h}"
+  #       ssss.dependency "React/ReactCommon/turbomodule/core"
+  #     end
+  #   end
+  # end
 
   s.subspec "React-RCTAnimation" do |ss|
     ss.platforms              = { :ios => "10.0" }
