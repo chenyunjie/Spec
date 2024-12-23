@@ -108,6 +108,12 @@ Pod::Spec.new do |s|
     ss.header_dir             = "ReactCommon"
   end
 
+  s.subspec "reactperflogger" do |ss|
+    ss.platforms              = { :ios => "10.0" }
+    ss.source_files           = "ReactCommon/reactperflogger/reactperflogger/*.{cpp,h}"
+    ss.header_dir             = "ReactCommon"
+  end
+
   s.subspec "FBReactNativeSpec" do |ss|
     ss.platforms              = { :ios => "10.0" }
     ss.source_files           = "React/FBReactNativeSpec/FBReactNativeSpec/*.{c,h,m,mm,cpp}"
